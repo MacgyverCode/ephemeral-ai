@@ -1,0 +1,3 @@
+# Undeploy your model
+
+POST https://automl.googleapis.com/v1/projects/project-id/locations/us-central1/models/model-id:undeploy
