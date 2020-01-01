@@ -1,10 +1,27 @@
-# Undeploy your model
+Undeploy model
 
-POST https://automl.googleapis.com/v1/projects/project-id/locations/us-central1/models/model-id:undeploy
-
-## cURL
+# cURL
 curl -X POST \
 -H "Authorization: Bearer "$(gcloud auth application-default print-access-token) \
 -H "Content-Type: application/json; charset=utf-8" \
 -d "" \
 https://automl.googleapis.com/v1/projects/project-id/locations/us-central1/models/model-id:undeploy
+
+
+Deploy Model
+
+#cURL
+curl -X POST \
+-H "Authorization: Bearer "$(gcloud auth application-default print-access-token) \
+-H "Content-Type: application/json; charset=utf-8" \
+-d @request.json \
+https://automl.googleapis.com/v1/projects/project-id/locations/us-central1/models/model-id:deploy
+
+# Specify nodes for deployment (1 node capacity = 0.67 request/second)
+# request.json body
+{
+  "imageObjectDetectionModelDeploymentMetadata": {
+    "nodeCount": 1
+  }
+}
+
